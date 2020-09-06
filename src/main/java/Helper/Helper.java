@@ -36,7 +36,7 @@ public class Helper extends SeleniumUtils {
 	}
 
 	public void ClicarLink(String link) {
-		Clica(buscaPage.LocateByText(link));
+		Clica(buscaPage.TITLE);
 	}
 
 	public void VerificarTituloModal(String titulo) {

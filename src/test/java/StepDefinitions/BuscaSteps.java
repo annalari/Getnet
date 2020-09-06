@@ -31,8 +31,8 @@ public class BuscaSteps {
 	public void clicar_em_procurar() {
 	    helper.ClicarProcurar();
 	}
-
-	@When("o sistema apresenta os resultados")
+	
+	@When("o sistema apresenta os resultados {string}")
 	public void o_sistema_apresenta_os_resultados(String titulo) {
 	    helper.VerificarPesquisa(titulo);
 	}
