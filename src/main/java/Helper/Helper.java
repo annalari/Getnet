@@ -16,15 +16,15 @@ public class Helper extends SeleniumUtils {
 	}
 
 	public void AcessarSite(String link) {
-		AcessarSite(link);
+		AbrirSite(link);
 	}
 
 	public void ClicarIconePesquisa() {
 		Clica(buscaPage.ICON_SEARCH);
 	}
 
-	public void PreencherCampoPesquisar(String msg) {
-		PreencheCampo(buscaPage.INPUT_SEARCH, msg);
+	public void PreencherCampo(String texto) {
+		PreencheCampo(buscaPage.INPUT_SEARCH, texto);
 	}
 
 	public void ClicarProcurar() {
@@ -32,15 +32,15 @@ public class Helper extends SeleniumUtils {
 	}
 
 	public void VerificarPesquisa(String titulo) {
-		assertEquals(buscaPage.PAGE_TITLE.getText(), titulo);
+		assertEquals(buscaPage.TITLE.getText(), titulo);
 	}
 
 	public void ClicarLink(String link) {
 		Clica(buscaPage.LocateByText(link));
 	}
 
-	public void VerificarTituloModal(String msg) {
-		assertEquals(RetornarTexto(buscaPage.LocateByText(msg)), msg);
+	public void VerificarTituloModal(String titulo) {
+		assertEquals(RetornarTexto(buscaPage.LocateByText(titulo)), titulo);
 		closeDriver();
 	}
 }

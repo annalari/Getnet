@@ -1,6 +1,7 @@
 package StepDefinitions;
 
 import Helper.Helper;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,29 +22,30 @@ public class BuscaSteps {
 		helper.ClicarIconePesquisa();
 	}
 
-	@When("digito {string} e clicar em procurar")
-	public void digito_e_clicar_em_procurar(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@And("digito {string}")
+	public void digito(String texto) {
+	    helper.PreencherCampo(texto);
+	}
+
+	@And("clicar em procurar")
+	public void clicar_em_procurar() {
+	    helper.ClicarProcurar();
 	}
 
 	@When("o sistema apresenta os resultados")
-	public void o_sistema_apresenta_os_resultados() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void o_sistema_apresenta_os_resultados(String titulo) {
+	    helper.VerificarPesquisa(titulo);
 	}
 
 
-	@When("clico no link {string}")
-	public void clico_no_link(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@And("clico no link {string}")
+	public void clico_no_link(String link) {
+		helper.ClicarLink(link);
 	}
 
 	@Then("Verifico se o titulo da modal apresenta a frase {string}")
-	public void verifico_se_o_titulo_da_modal_apresenta_a_frase(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	public void verifico_se_o_titulo_da_modal_apresenta_a_frase(String titulo) {
+		helper.VerificarTituloModal(titulo);
 	}
 
 }

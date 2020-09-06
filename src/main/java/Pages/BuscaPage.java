@@ -24,7 +24,7 @@ public class BuscaPage {
 	public WebElement BTN_SEARCH;
 
 	@FindBy(xpath = "//*[contains(@class, 'c-search-page__title--red')]")
-	public WebElement PAGE_TITLE;
+	public WebElement TITLE;
 
 	public WebElement LocateByText(String textToLocate) {
 		String xpath = "//*[contains(text(),'" + textToLocate + "')]";
