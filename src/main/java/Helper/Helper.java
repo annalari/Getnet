@@ -1,41 +1,46 @@
 package Helper;
 
-public class Helper {
-	WebDriver driver;
-	MainPage mainPage;
+import static org.junit.Assert.assertEquals;
+import org.openqa.selenium.WebDriver;
+import Pages.BuscaPage;
+import Utils.SeleniumUtils;
 
-	public MainHelper(WebDriver driver) {
+public class Helper extends SeleniumUtils {
+	WebDriver driver;
+	BuscaPage buscaPage;
+
+	public Helper(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
-		mainPage = new MainPage(driver);
+		buscaPage = new BuscaPage(driver);
 	}
 
 	public void AcessarSite(String link) {
-		AbrirSite(link);
+		AcessarSite(link);
 	}
 
 	public void ClicarIconePesquisa() {
-		ClicarBotao(mainPage.ICON_SEARCH);
+		Clica(buscaPage.ICON_SEARCH);
 	}
 
 	public void PreencherCampoPesquisar(String msg) {
-		PreencherCampo(mainPage.INPUT_SEARCH, msg);
+		PreencheCampo(buscaPage.INPUT_SEARCH, msg);
 	}
 
 	public void ClicarProcurar() {
-		ClicarBotao(mainPage.BTN_SEARCH);
+		Clica(buscaPage.BTN_SEARCH);
 	}
 
 	public void VerificarPesquisa(String titulo) {
-		assertEquals(mainPage.PAGE_TITLE.getText(), titulo);
+		assertEquals(buscaPage.PAGE_TITLE.getText(), titulo);
 	}
 
 	public void ClicarLink(String link) {
-		ClicarBotao(mainPage.LocatorByText(link));
+		Clica(buscaPage.LocateByText(link));
 	}
 
 	public void VerificarTituloModal(String msg) {
-		assertEquals(RetornarTexto(mainPage.LocatorByText(msg)), msg);
-		FecharDriver();
+		assertEquals(RetornarTexto(buscaPage.LocateByText(msg)), msg);
+		closeDriver();
 	}
 }
